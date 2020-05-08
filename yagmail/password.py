@@ -5,6 +5,7 @@ except (ImportError, NameError, RuntimeError):
 
 
 def handle_password(user, password):  # pragma: no cover
+    print("hey")
     """ Handles getting the password"""
     if password is None:
         try:
@@ -15,20 +16,7 @@ def handle_password(user, password):  # pragma: no cover
             )
             raise e
         if password is None:
-            import getpass
-
-            password = getpass.getpass("Password for <{0}>: ".format(user))
-            answer = ""
-            # Python 2 fix
-            while answer != "y" and answer != "n":
-                prompt_string = "Save username and password in keyring? [y/n]: "
-                # pylint: disable=undefined-variable
-                try:
-                    answer = raw_input(prompt_string).strip()
-                except NameError:
-                    answer = input(prompt_string).strip()
-            if answer == "y":
-                register(user, password)
+            raise ValueError("password for - {} not found".format(user))
     return password
 
 
