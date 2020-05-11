@@ -5,7 +5,7 @@ except (ImportError, NameError, RuntimeError):
 
 
 def handle_password(user, password):  # pragma: no cover
-    print("hey")
+    #print("hey")
     """ Handles getting the password"""
     if password is None:
         try:
